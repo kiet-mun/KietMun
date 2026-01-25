@@ -4,7 +4,13 @@
     preserveAspectRatio="xMidYMid slice"
 >
     <!-- Base background -->
-    <rect width="1440" height="900" fill="#0d0c2d" />
+    <rect
+        width="1440"
+        height="900"
+        fill="#0d0c2d"
+        opacity="0.95"
+    />
+
 
     <!-- Soft radial glow -->
     <defs>

@@ -1,32 +1,21 @@
-import Image from "next/image";
-import Navbar from "./components/Navbar";
+"use client";
 import HeroContent from "@/app/components/HeroSection";
+import CountdownTimer from "./components/CountDownTimer";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [showTimer, setShowTimer] = useState(false);
+
+  useEffect(() => {
+    setShowTimer(true);
+  }, []);
   return (
     <>
       {/* HERO SECTION */}
-      <div className="relative min-h-screen overflow-hidden">
-        {/* SVG Background */}
-        <Image
-          src="/test.svg"
-          alt="Background"
-          fill
-          priority
-          className="object-cover -z-10"
-        />
-
-        {/* Content */}
-        <div className="fixed top-0 left-0 w-full z-50 backdrop-blur bg-[#0d0c2d]/80">
-          <Navbar />
-        </div>
+      <HeroContent />
+      {showTimer && <CountdownTimer />}
 
 
-        <div className="relative z-10 pt-20">
-
-          <HeroContent />
-        </div>
-      </div >
 
       {/* LETTER SECTION */}
       < section className="bg-white py-24" >
