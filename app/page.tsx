@@ -19,7 +19,6 @@ export default function Home() {
       {showTimer && <CountdownTimer />}
       <LetterFromSecretariat/>
       <CommitteesPage/>
-      <Footer/>
     </>
   );
 }
