@@ -73,8 +73,8 @@ const CountdownTimer = () => {
               rounded-3xl
               text-center
               w-full
-              border
-              border-[#C7BEE6]
+              border-2
+              border-[#6f67b8]
               shadow-lg
               hover:shadow-xl
               transition-all
@@ -84,7 +84,7 @@ const CountdownTimer = () => {
                         <p className="text-5xl md:text-6xl font-extrabold text-[#0d0c2d] tracking-wider">
                             {value}
                         </p>
-                        <span className="text-sm sm:text-base uppercase text-[#C7BEE6] font-semibold mt-3 block tracking-widest">
+                        <span className="text-sm sm:text-base uppercase text-[#6f67b8] font-semibold mt-3 block tracking-widest">
                             {unit}
                         </span>
                     </motion.div>

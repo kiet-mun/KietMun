@@ -15,31 +15,31 @@ export default function Prizes(): React.ReactElement {
             title: "Best Delegate",
             amount: "₹10,000",
             quote: "Leadership that inspires change.",
-            icon: <FaTrophy className="text-[#C7BEE6] text-5xl" />,
+            icon: <FaTrophy className="text-[#a9a1d6] text-5xl" />,
         },
         {
             title: "High Commendation",
             amount: "₹5,000",
             quote: "Recognizing exceptional contribution.",
-            icon: <FaMedal className="text-[#C7BEE6] text-5xl" />,
+            icon: <FaMedal className="text-[#a9a1d6] text-5xl" />,
         },
         {
             title: "Special Mention",
             amount: "₹2,000",
             quote: "For dedication and impactful presence.",
-            icon: <FaAward className="text-[#C7BEE6] text-5xl" />,
+            icon: <FaAward className="text-[#a9a1d6] text-5xl" />,
         },
         {
             title: "Best Delegation",
             amount: "₹2,000",
             quote: "Teamwork makes the dream work.",
-            icon: <FaUsers className="text-[#C7BEE6] text-5xl" />,
+            icon: <FaUsers className="text-[#a9a1d6] text-5xl" />,
         },
         {
             title: "Best School Delegation",
             amount: "₹2,000",
             quote: "Excellence in collective effort.",
-            icon: <FaSchool className="text-[#C7BEE6] text-5xl" />,
+            icon: <FaSchool className="text-[#a9a1d6] text-5xl" />,
         },
     ];
 
@@ -59,7 +59,7 @@ export default function Prizes(): React.ReactElement {
                             className="
                 flex flex-col items-center
                 bg-white
-                border border-[#C7BEE6]/40
+                border border-[#a9a1d6]/40
                 rounded-2xl
                 shadow-md hover:shadow-xl
                 p-10
@@ -89,7 +89,7 @@ export default function Prizes(): React.ReactElement {
                         className="
               flex flex-col items-center
               bg-white
-              border border-[#C7BEE6]/40
+              border border-[#a9a1d6]/40
               rounded-2xl
               shadow-md hover:shadow-xl
               p-10

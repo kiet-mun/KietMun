@@ -13,7 +13,7 @@ export default function LetterFromSecretariat() {
                 className="
           max-w-4xl w-full
           bg-white
-          border-t-8 border-[#c7bee6]
+          border-t-8 border-[#6f67b8]
           rounded-xl
           p-10 md:p-14
           shadow-lg hover:shadow-xl
@@ -73,7 +73,7 @@ export default function LetterFromSecretariat() {
                         our young, dynamic leaders beyond rote memorization and encourage them
                         to explore the uncharted waters of international politics and
                         policymaking. With this thought in mind, we welcome you to{" "}
-                        <span className="font-semibold text-[#c7bee6]">
+                        <span className="font-semibold text-[#6f67b8]">
                             KIET MUN 2025
                         </span>{" "}
                         and its engaging and stimulating sessions ahead.
@@ -98,11 +98,11 @@ export default function LetterFromSecretariat() {
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                     viewport={{ once: true }}
-                    className="mt-12 border-t border-[#C7BEE6]/50 pt-6"
+                    className="mt-12 border-t border-[#6f67b8]/50 pt-6"
                 >
                     <p className="text-[#0d0c2d]">Warm regards,</p>
 
-                    <p className="mt-2 text-xl font-semibold text-[#c7bee6]">
+                    <p className="mt-2 text-xl font-semibold text-[#6f67b8]">
                         The Secretariat
                     </p>
 
