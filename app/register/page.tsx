@@ -109,8 +109,13 @@ export default function Register(): React.ReactElement {
     /* ================= STYLES ================= */
 
     const label = "block mb-2 font-medium text-[#0d0c2d]";
+
     const input = (err?: boolean) =>
-        `w-full px-4 py-4 rounded-md border placeholder:text-[#0d0c2d]/50 focus:outline-none focus:ring-2 ${
+        `w-full px-4 py-4 rounded-md border 
+         text-[#0d0c2d]
+         placeholder:text-[#0d0c2d]/70
+         bg-white
+         focus:outline-none focus:ring-2 ${
             err
                 ? "border-red-500 focus:ring-red-500"
                 : "border-[#0d0c2d]/30 focus:ring-[#C7BEE6]"
@@ -120,14 +125,14 @@ export default function Register(): React.ReactElement {
 
     return (
         <section className="bg-white py-28 px-6 flex justify-center">
-            <div className="max-w-5xl w-full border border-[#C7BEE6]/40 rounded-xl p-10 shadow-md">
+            <div className="max-w-5xl w-full bg-white border border-[#C7BEE6]/40 rounded-xl p-10 shadow-md">
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-[#0d0c2d] text-center mb-4">
                     Delegate Registration
                 </h1>
 
                 <p className="text-center text-[#0d0c2d]/70 mb-10">
-                    External Delegate Fee: ₹1600
+                    Delegate Fee: ₹1600
                 </p>
 
                 <form

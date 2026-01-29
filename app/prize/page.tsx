@@ -20,40 +20,43 @@ export default function Prizes(): React.ReactElement {
         {
             title: "Best Delegate",
             amount: "₹10,000",
-            quote: "Excellence in diplomacy, leadership, and impact.",
-            icon: <FaTrophy className="text-[#0d0c2d] text-5xl" />,
+            quote:
+                "Leadership that inspires change and drives meaningful discussions across all committees.",
+            icon: <FaTrophy className="text-white text-5xl" />,
         },
         {
             title: "High Commendation",
             amount: "₹5,000",
-            quote: "Outstanding performance and substantive debate.",
-            icon: <FaMedal className="text-[#0d0c2d] text-5xl" />,
+            quote: "Exceptional contribution.",
+            icon: <FaMedal className="text-[#0d0c2d] text-xl" />,
         },
         {
             title: "Special Mention",
             amount: "₹2,000",
-            quote: "Recognizing consistent contribution and initiative.",
-            icon: <FaAward className="text-[#0d0c2d] text-5xl" />,
+            quote: "Impactful presence.",
+            icon: <FaAward className="text-[#0d0c2d] text-xl" />,
         },
         {
             title: "Best Delegation",
             amount: "₹2,000",
-            quote: "Exceptional teamwork and strategic coordination.",
-            icon: <FaUsers className="text-[#0d0c2d] text-5xl" />,
+            quote: "Team excellence.",
+            icon: <FaUsers className="text-[#0d0c2d] text-xl" />,
         },
         {
             title: "Best School Delegation",
             amount: "₹2,000",
-            quote: "Collective excellence across committees.",
-            icon: <FaSchool className="text-[#0d0c2d] text-5xl" />,
+            quote: "Collective excellence.",
+            icon: <FaSchool className="text-[#0d0c2d] text-xl" />,
         },
     ];
 
+    const [grandPrize, ...otherPrizes] = prizeList;
+
     return (
-        <section className="bg-white py-32 px-6">
+        <section className="bg-white py-24 px-6">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-20">
+                {/* Heading – untouched */}
+                <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-extrabold text-[#0d0c2d] mb-6">
                         Prize Structure
                     </h1>
@@ -64,53 +67,90 @@ export default function Prizes(): React.ReactElement {
                     </p>
                 </div>
 
-                {/* Prizes Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
-                    {prizeList.map((prize) => (
+                {/* Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    {/* Grand Prize */}
+                    <div className="lg:col-span-2">
                         <div
-                            key={prize.title}
                             className="
-                                group
                                 relative
-                                bg-white
-                                border border-[#C7BEE6]/40
+                                h-[420px]
                                 rounded-3xl
                                 p-10
-                                h-[360px]
+                                text-white
+                                overflow-hidden
+                                bg-gradient-to-br
+                                from-[#0d0c2d]
+                                to-[#062045]
+                                shadow-xl
                                 flex flex-col
                                 justify-between
+                                transform-gpu
+                                hover:scale-[1.01]
                                 transition-all duration-300
-                                hover:shadow-xl
-                                hover:-translate-y-2
                             "
                         >
-                            {/* Top Accent */}
-                            <div className="absolute top-0 left-0 w-full h-1 rounded-t-3xl bg-[#C7BEE6]" />
+                            <div>
+                                <p className="uppercase tracking-widest text-sm mb-4 text-[#C7BEE6]">
+                                    Grand Prize
+                                </p>
+                                <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+                                    {grandPrize.title}
+                                </h2>
+                                <p className="text-4xl font-bold mb-6">
+                                    {grandPrize.amount}
+                                </p>
+                                <p className="max-w-lg text-white/90">
+                                    {grandPrize.quote}
+                                </p>
+                            </div>
 
-                            {/* Icon */}
-                            <div className="flex justify-center">
-                                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#C7BEE6]/15 transition group-hover:scale-105">
-                                    {prize.icon}
+                            <div className="absolute bottom-8 right-8 opacity-10">
+                                <FaTrophy className="text-[180px]" />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 4 Small 3D Cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        {otherPrizes.map((prize) => (
+                            <div
+                                key={prize.title}
+                                className="
+                                    bg-white
+                                    border border-[#C7BEE6]/40
+                                    rounded-2xl
+                                    p-6
+                                    h-[170px]
+                                    shadow-[0_12px_30px_rgba(0,0,0,0.08)]
+                                    transform-gpu
+                                    transition-all duration-300
+                                    hover:-translate-y-2
+                                    hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)]
+                                    flex flex-col
+                                    justify-between
+                                "
+                            >
+                                <div className="flex items-center gap-3">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#C7BEE6]/25">
+                                        {prize.icon}
+                                    </div>
+                                    <h3 className="font-semibold text-[#0d0c2d] leading-tight">
+                                        {prize.title}
+                                    </h3>
+                                </div>
+
+                                <div>
+                                    <p className="text-sm text-[#0d0c2d]/60 mb-2">
+                                        {prize.quote}
+                                    </p>
+                                    <p className="font-bold text-[#062045]">
+                                        {prize.amount}
+                                    </p>
                                 </div>
                             </div>
-
-                            {/* Content */}
-                            <div className="text-center">
-                                <h2 className="text-2xl font-bold text-[#0d0c2d] mb-2">
-                                    {prize.title}
-                                </h2>
-                                <p className="text-3xl font-extrabold text-[#062045] mb-4">
-                                    {prize.amount}
-                                </p>
-                                <p className="text-[#0d0c2d]/70 max-w-xs mx-auto">
-                                    {prize.quote}
-                                </p>
-                            </div>
-
-                            {/* Bottom Accent */}
-                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-[#C7BEE6]/60 rounded-full" />
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
