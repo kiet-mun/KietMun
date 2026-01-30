@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import Image from "next/image";
 
 interface NavItem {
     name: string;
@@ -57,7 +58,13 @@ export default function Navbar(): React.ReactElement {
                     onClick={() => router.push("/")}
                     className="font-bold tracking-widest cursor-pointer"
                 >
-                    KIET
+                     <Image
+    src="/kmunlogo.png"
+    alt="KIET Logo"
+    width={46}
+    height={46}
+    className="object-contain"
+  />
                 </div>
 
                 {/* Desktop Links */}
@@ -126,9 +133,13 @@ export default function Navbar(): React.ReactElement {
             >
                 {/* Drawer Header */}
                 <div className="flex items-center justify-between px-6 h-16 border-b border-[#C7BEE6]/40">
-                    <span className="font-bold tracking-widest text-[#0d0c2d]">
-                        KIET
-                    </span>
+                   <Image
+    src="/logo.png"
+    alt="KIET Logo"
+    width={36}
+    height={36}
+    className="object-contain"
+  />
                     <button
                         onClick={() => setOpen(false)}
                         className="text-[#0d0c2d]"
