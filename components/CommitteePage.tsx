@@ -12,12 +12,12 @@ interface Committee {
 const committees: Committee[] = [
     {
         name: "AIPPM",
-        image: "/committees/aippm.png",
+        image: "/committees/aippm.jpg",
         position: "top-0 left-10",
     },
     {
         name: "UNCSW",
-        image: "/committees/uncsw.png",
+        image: "/committees/uncs.png",
         position: "top-0 right-10",
     },
     {
@@ -79,22 +79,25 @@ export default function CommitteesPage(): React.ReactElement {
             {/* ================= DESKTOP (FREE LAYOUT + CENTER LOGO) ================= */}
             <div className="hidden lg:block relative w-full max-w-5xl mx-auto h-[560px]">
                 {/* Center KIET Logo – DESKTOP ONLY */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                    className="
-                        absolute
-                        top-1/2 left-1/2
-                        -translate-x-1/2 -translate-y-1/2
-                        w-64 h-64
-                        bg-no-repeat bg-center bg-contain
-                        z-[5]
-                        pointer-events-none
-                    "
-                    style={{ backgroundImage: "url('/log.png')" }}
-                />
+               <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="
+        absolute
+        top-1/2 left-1/2
+        -translate-x-1/2 -translate-y-1/2
+        w-64 h-64
+        rounded-full
+        overflow-hidden
+        bg-no-repeat bg-center bg-cover
+        z-[5]
+        pointer-events-none
+        shadow-[0px_10px_40px_rgba(0,0,0,0.3)]
+    "
+    style={{ backgroundImage: "url('/clogo.png')" }}
+/>
 
                 {/* Committee Items */}
                 {committees.map((committee, index) => (

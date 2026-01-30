@@ -9,112 +9,107 @@ interface Member {
 }
 
 export default function Secretariat(): React.ReactElement {
-    const leaders: Member[] = [
+    const coreTeam: Member[] = [
+        { name: "Abhishek Sharma", role: "Chief Advisor", image: "/images/abhishek.jpeg" },
+        { name: "Sumit Verma", role: "Treasurer", image: "/images/sumit.jpeg" },
         { name: "Ashutosh", role: "Secretary General", image: "/images/ashutosh.jpeg" },
         { name: "Tashi Verma", role: "Deputy Secretary General", image: "/images/tashi.jpeg" },
-        { name: "Aadish Pathak", role: "Director General", image: "/images/aadish.jpeg" },
-    ];
-
-    const departmentHeads: Member[] = [
+        { name: "Aadish Pathak", role: "Director General", image: "/images/adish.jpeg" },
         { name: "Pravira Shukla", role: "Senior Convenor", image: "/images/pravira.jpeg" },
         { name: "Sourav Prasad", role: "Convenor", image: "/images/sourav.jpeg" },
-        { name: "Janhwee Pandey", role: "Head of Secretariat", image: "/images/janhwee.jpeg" },
+        { name: "Janhwee Pandey", role: "Head of Secretariat", image: "/images/jahnwee.jpeg" },
         { name: "Mitansh Gupta", role: "Director of Management", image: "/images/mitansh.jpeg" },
-    ];
-
-    const secretariat: Member[] = [
         { name: "Vartika Agrawal", role: "Head of Graphics", image: "/images/vartika.jpeg" },
-        { name: "Shudha Nidhi", role: "Head of Digital Affairs", image: "/images/shudha.jpeg" },
+        { name: "Shudha Nidhi Soni", role: "Head of Digital Affairs", image: "/images/shudhanidhi.jpeg" },
         { name: "Sakshi Agrawal", role: "Head of Public Relations", image: "/images/sakshi.jpeg" },
     ];
 
     const Card = ({ name, role, image }: Member): React.ReactElement => (
         <div
             className="
+                relative
                 bg-white
-                border border-[#C7BEE6]/40
-                rounded-2xl
+                rounded-xl
                 overflow-hidden
-                shadow-sm
                 transition-all duration-300
-                hover:shadow-lg
-                hover:-translate-y-1
+                hover:shadow-[0_20px_50px_rgba(13,12,45,0.3)]
+                hover:-translate-y-2
+                shadow-[0_10px_30px_rgba(13,12,45,0.15)]
             "
+            style={{
+                transform: 'perspective(1000px) rotateX(2deg)',
+                transformStyle: 'preserve-3d',
+            }}
         >
-            {/* Image */}
-            <div className="relative w-full h-64">
+            {/* 3D Border Effect */}
+            <div className="absolute inset-0 border-2 border-[#0d0c2d]/10 rounded-xl pointer-events-none" />
+            
+            {/* Image Container */}
+            <div className="relative w-full h-96 overflow-hidden bg-gray-100">
                 <Image
                     src={image}
                     alt={name}
                     fill
-                    className="object-cover"
-                    sizes="(min-width: 768px) 25vw, 100vw"
-                    quality={70}
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    quality={85}
                 />
+                {/* Subtle Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
 
-            {/* Content */}
-            <div className="p-8 text-center">
-                <h3 className="text-xl font-bold text-[#0d0c2d] mb-1">
+            {/* Content Container with 3D Effect */}
+            <div 
+                className="relative bg-white p-6 border-t-4 border-[#0d0c2d]"
+                style={{
+                    transform: 'translateZ(20px)',
+                }}
+            >
+                {/* Name */}
+                <h3 className="text-2xl font-bold text-[#0d0c2d] mb-2 tracking-tight">
                     {name}
                 </h3>
-                <p className="text-[#0d0c2d]/70">{role}</p>
+                
+                {/* Role */}
+                <p className="text-base font-medium text-[#0d0c2d]/70 uppercase tracking-wider">
+                    {role}
+                </p>
+
+                {/* Bottom Shadow Line for Depth */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#0d0c2d]/10 to-transparent" />
             </div>
+
+            {/* 3D Shadow Layer */}
+            <div className="absolute -bottom-2 left-2 right-2 h-2 bg-[#0d0c2d]/5 blur-sm rounded-b-xl -z-10" />
         </div>
     );
 
     return (
-        <main className="bg-white text-[#0d0c2d] pt-28">
-            {/* INTRO */}
-            <section className="max-w-5xl mx-auto px-6 py-16 text-center">
-                <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-                    Secretariat
-                </h1>
-                <p className="text-[#0d0c2d]/70 text-lg max-w-3xl mx-auto">
-                    The Secretariat serves as the executive and administrative backbone
-                    of the conference, ensuring smooth coordination, leadership, and
-                    an enriching experience for all delegates.
-                </p>
+        <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+            {/* Header Section */}
+            <section className="pt-32 pb-12 px-6">
+                <div className="max-w-6xl mx-auto text-center">
+                    <h1 
+                        className="text-5xl md:text-6xl font-bold mb-4 tracking-tight text-[#0d0c2d] inline-block"
+                    >
+                        CORE TEAM
+                    </h1>
+                    {/* Full width underline under the text */}
+                    <div className="w-full max-w-md mx-auto h-1 bg-[#0d0c2d] mt-6" />
+                </div>
             </section>
 
-            {/* LEADERS */}
-            <section className="max-w-6xl mx-auto px-6 py-14">
-                <h2 className="text-3xl font-bold text-[#0d0c2d] mb-12 text-center">
-                    Leadership
-                </h2>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
-                    {leaders.map((member) => (
+            {/* Team Grid - 3 Cards Per Row with Increased Row Spacing */}
+            <section className="max-w-7xl mx-auto px-6 py-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+                    {coreTeam.map((member) => (
                         <Card key={member.name} {...member} />
                     ))}
                 </div>
             </section>
 
-            {/* DEPARTMENT HEADS */}
-            <section className="max-w-6xl mx-auto px-6 py-14">
-                <h2 className="text-3xl font-bold text-[#0d0c2d] mb-12 text-center">
-                    Department Heads
-                </h2>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
-                    {departmentHeads.map((member) => (
-                        <Card key={member.name} {...member} />
-                    ))}
-                </div>
-            </section>
-
-            {/* SECRETARIAT */}
-            <section className="max-w-6xl mx-auto px-6 py-20">
-                <h2 className="text-3xl font-bold text-[#0d0c2d] mb-12 text-center">
-                    Secretariat Team
-                </h2>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
-                    {secretariat.map((member) => (
-                        <Card key={member.name} {...member} />
-                    ))}
-                </div>
-            </section>
+            {/* Bottom Spacer */}
+            <div className="h-20" />
         </main>
     );
 }

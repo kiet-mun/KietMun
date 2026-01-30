@@ -74,7 +74,7 @@ export default function LetterFromSecretariat() {
                         to explore the uncharted waters of international politics and
                         policymaking. With this thought in mind, we welcome you to{" "}
                         <span className="font-semibold text-[#6f67b8]">
-                            KIET MUN 2025
+                            KIET MUN 2026
                         </span>{" "}
                         and its engaging and stimulating sessions ahead.
                     </motion.p>
@@ -102,12 +102,12 @@ export default function LetterFromSecretariat() {
                 >
                     <p className="text-[#0d0c2d]">Warm regards,</p>
 
-                    <p className="mt-2 text-xl font-semibold text-[#6f67b8]">
+                    <p className="mt-2 text-xl font-semibold text-[#0d0c2d]">
                         The Secretariat
                     </p>
 
                     <p className="text-[#0d0c2d]/80">
-                        KIET Model United Nations 2025
+                        KIET Model United Nations 2026
                     </p>
                 </motion.div>
             </motion.div>

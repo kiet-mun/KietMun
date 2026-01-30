@@ -86,7 +86,7 @@ const committees: CommitteeItem[] = [
     },
     {
         name: "UNCSW",
-        img: "/UNCSW.jpeg",
+        img: "/UNCSW.png",
         agenda:
             "Deliberation on reducing greenhouse gas emissions and transitioning to low-carbon economies.",
         animation: fadeInLeft,
@@ -106,7 +106,7 @@ const committees: CommitteeItem[] = [
 
 export default function Committee(): React.ReactElement {
     return (
-        <section className="w-full bg-[#f8f8f8] py-20 px-4 sm:px-8 lg:px-16">
+        <section className="w-full bg-gradient-to-b from-white to-[#f8f8f8] py-30 px-4 sm:px-8 lg:px-16">
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
@@ -117,7 +117,7 @@ export default function Committee(): React.ReactElement {
                 {/* Heading */}
                 <motion.h1
                     variants={fadeInUp}
-                    className="text-4xl md:text-5xl font-extrabold text-[#0d0c2d] mb-16"
+                    className="text-4xl md:text-5xl font-extrabold text-[#0d0c2d] mb-16 text-center"
                 >
                     Committees
                 </motion.h1>
@@ -128,38 +128,42 @@ export default function Committee(): React.ReactElement {
                         <motion.div
                             key={committee.name}
                             variants={committee.animation}
-                            className={`bg-white rounded-2xl shadow-md flex flex-col md:flex-row ${index % 2 === 1 ? "md:flex-row-reverse" : ""
-                                } items-center gap-10 p-8 md:p-12`}
+                            className={`bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col md:flex-row ${
+                                index % 2 === 1 ? "md:flex-row-reverse" : ""
+                            } items-center gap-10 p-8 md:p-12 border border-[#C7BEE6]/20`}
                         >
-                            {/* Logo */}
+                            {/* Logo - Circular */}
                             <motion.div
                                 variants={zoomIn}
                                 className="w-full md:w-1/4 flex justify-center"
                             >
-                                <Image
-                                    src={committee.img}
-                                    alt={committee.name}
-                                    width={260}
-                                    height={260}
-                                    className="rounded-full object-cover"
-                                />
+                                <div className="relative w-64 h-64 rounded-full overflow-hidden ring-4 ring-[#C7BEE6]/30 shadow-xl">
+                                    <Image
+                                        src={committee.img}
+                                        alt={committee.name}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                             </motion.div>
 
                             {/* Content */}
                             <motion.div
                                 variants={fadeInUp}
-                                className="w-full md:w-3/4 bg-[#f4f5fb] rounded-xl p-8 border border-[#C7BEE6]/50 text-center"
+                                className="w-full md:w-3/4 bg-gradient-to-br from-[#f4f5fb] to-white rounded-2xl p-8 border-2 border-[#C7BEE6]/40 text-center md:text-left shadow-inner"
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold text-[#0d0c2d] mb-4">
+                                <h2 className="text-3xl md:text-4xl font-bold text-[#0d0c2d] mb-6">
                                     {committee.name}
                                 </h2>
 
-                                <p className="text-[#0d0c2d] text-lg leading-relaxed">
-                                    <span className="font-semibold text-[#C7BEE6] text-xl">
+                                <div className="flex items-start gap-3">
+                                    <span className="font-bold text-[#C7BEE6] text-xl flex-shrink-0">
                                         Agenda:
-                                    </span>{" "}
-                                    {committee.agenda}
-                                </p>
+                                    </span>
+                                    <p className="text-[#0d0c2d] text-lg leading-relaxed">
+                                        {committee.agenda}
+                                    </p>
+                                </div>
                             </motion.div>
                         </motion.div>
                     ))}

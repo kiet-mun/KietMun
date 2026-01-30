@@ -19,7 +19,7 @@ export default function Navbar(): React.ReactElement {
     const navItems: NavItem[] = [
         { name: "Home", path: "/" },
         { name: "Committees", path: "/Committee" },
-        { name: "Secretariat", path: "/secretariat" },
+        { name: "Team", path: "/secretariat" },
         { name: "Prizes", path: "/prize" },
         { name: "Gallery", path: "/gallery" },
         { name: "FAQs", path: "/faqs" },
