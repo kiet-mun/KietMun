@@ -93,7 +93,7 @@ export default function CommitteesPage(): React.ReactElement {
                         z-[5]
                         pointer-events-none
                     "
-                    style={{ backgroundImage: "url('/committees/Blo.png')" }}
+                    style={{ backgroundImage: "url('/log.png')" }}
                 />
 
                 {/* Committee Items */}

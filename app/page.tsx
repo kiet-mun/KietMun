@@ -1,24 +1,74 @@
 "use client";
-import HeroContent from "@/components/HeroSection";
-import CountdownTimer from "../components/CountDownTimer";
+
 import { useEffect, useState } from "react";
+import { motion, type Variants } from "framer-motion";
+
+import HeroContent from "@/components/HeroSection";
+import CountdownTimer from "@/components/CountDownTimer";
 import LetterFromSecretariat from "@/components/LetterToSecretarait";
-import Footer from "@/components/Footer";
 import CommitteesPage from "@/components/CommitteePage";
+import Footer from "@/components/Footer";
 
-export default function Home() {
-  const [showTimer, setShowTimer] = useState(false);
+const sectionVariants: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 40,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1], // ✅ type-safe easing
+        },
+    },
+};
 
-  useEffect(() => {
-    setShowTimer(true);
-  }, []);
-  return (
-    <>
-      {/* HERO SECTION */}
-      <HeroContent />
-      {showTimer && <CountdownTimer />}
-      <LetterFromSecretariat/>
-      <CommitteesPage/>
-    </>
-  );
+export default function Home(): React.ReactElement {
+    const [showTimer, setShowTimer] = useState(false);
+
+    useEffect(() => {
+        setShowTimer(true);
+    }, []);
+
+    return (
+        <>
+            {/* HERO SECTION */}
+            <motion.div initial="hidden" animate="visible" variants={sectionVariants}>
+                <HeroContent />
+            </motion.div>
+
+            {/* COUNTDOWN */}
+            {showTimer && (
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={sectionVariants}
+                >
+                    <CountdownTimer />
+                </motion.div>
+            )}
+
+            {/* LETTER FROM SECRETARIAT */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={sectionVariants}
+            >
+                <LetterFromSecretariat />
+            </motion.div>
+
+            {/* COMMITTEES */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={sectionVariants}
+            >
+                <CommitteesPage />
+            </motion.div>
+        </>
+    );
 }

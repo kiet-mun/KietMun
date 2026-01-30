@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { createClient } from "@supabase/supabase-js";
+import Image from "next/image";
 
 /* ================= SUPABASE ================= */
 
@@ -64,7 +65,10 @@ export default function Register(): React.ReactElement {
         try {
             const file = data.paymentScreenshot?.[0];
             if (!file) {
-                setStatus({ type: "error", message: "Payment screenshot is required." });
+                setStatus({
+                    type: "error",
+                    message: "Payment screenshot is required.",
+                });
                 setLoading(false);
                 return;
             }
@@ -126,7 +130,6 @@ export default function Register(): React.ReactElement {
     return (
         <section className="bg-white py-28 px-6 flex justify-center">
             <div className="max-w-5xl w-full bg-white border border-[#C7BEE6]/40 rounded-xl p-10 shadow-md">
-
                 <h1 className="text-4xl md:text-5xl font-extrabold text-[#0d0c2d] text-center mb-4">
                     Delegate Registration
                 </h1>
@@ -139,7 +142,6 @@ export default function Register(): React.ReactElement {
                     onSubmit={handleSubmit(onSubmit)}
                     className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 >
-
                     {/* BASIC INFO */}
                     <div>
                         <label className={label}>Name</label>
@@ -206,8 +208,13 @@ export default function Register(): React.ReactElement {
 
                     {/* COMMITTEE 1 */}
                     <div className="md:col-span-2">
-                        <label className={label}>1st Committee Preference</label>
-                        <select {...register("committee1", { required: true })} className={input()}>
+                        <label className={label}>
+                            1st Committee Preference
+                        </label>
+                        <select
+                            {...register("committee1", { required: true })}
+                            className={input()}
+                        >
                             <option value="">Select Committee</option>
                             <option>UNGA</option>
                             <option>UNHRC</option>
@@ -216,21 +223,33 @@ export default function Register(): React.ReactElement {
                         </select>
                     </div>
 
-                    {["portfolio1_1", "portfolio1_2", "portfolio1_3"].map((f) => (
-                        <div key={f}>
-                            <label className={label}>Portfolio Preference</label>
-                            <input
-                                placeholder="Portfolio choice"
-                                {...register(f as keyof RegisterFormValues, { required: true })}
-                                className={input()}
-                            />
-                        </div>
-                    ))}
+                    {["portfolio1_1", "portfolio1_2", "portfolio1_3"].map(
+                        (f) => (
+                            <div key={f}>
+                                <label className={label}>
+                                    Portfolio Preference
+                                </label>
+                                <input
+                                    placeholder="Portfolio choice"
+                                    {...register(
+                                        f as keyof RegisterFormValues,
+                                        { required: true }
+                                    )}
+                                    className={input()}
+                                />
+                            </div>
+                        )
+                    )}
 
                     {/* COMMITTEE 2 */}
                     <div className="md:col-span-2">
-                        <label className={label}>2nd Committee Preference</label>
-                        <select {...register("committee2", { required: true })} className={input()}>
+                        <label className={label}>
+                            2nd Committee Preference
+                        </label>
+                        <select
+                            {...register("committee2", { required: true })}
+                            className={input()}
+                        >
                             <option value="">Select Committee</option>
                             <option>UNGA</option>
                             <option>UNHRC</option>
@@ -239,16 +258,23 @@ export default function Register(): React.ReactElement {
                         </select>
                     </div>
 
-                    {["portfolio2_1", "portfolio2_2", "portfolio2_3"].map((f) => (
-                        <div key={f}>
-                            <label className={label}>Portfolio Preference</label>
-                            <input
-                                placeholder="Portfolio choice"
-                                {...register(f as keyof RegisterFormValues, { required: true })}
-                                className={input()}
-                            />
-                        </div>
-                    ))}
+                    {["portfolio2_1", "portfolio2_2", "portfolio2_3"].map(
+                        (f) => (
+                            <div key={f}>
+                                <label className={label}>
+                                    Portfolio Preference
+                                </label>
+                                <input
+                                    placeholder="Portfolio choice"
+                                    {...register(
+                                        f as keyof RegisterFormValues,
+                                        { required: true }
+                                    )}
+                                    className={input()}
+                                />
+                            </div>
+                        )
+                    )}
 
                     {/* EXPERIENCE */}
                     <div>
@@ -275,6 +301,20 @@ export default function Register(): React.ReactElement {
                             placeholder="Transaction reference"
                             {...register("transaction", { required: true })}
                             className={input()}
+                        />
+                    </div>
+
+                    {/* QR SECTION */}
+                    <div className="md:col-span-2 flex flex-col items-center border border-[#C7BEE6]/40 rounded-lg p-6 bg-[#C7BEE6]/5">
+                        <p className="text-sm font-medium text-[#0d0c2d] mb-4 text-center">
+                            Scan the QR code below to complete the payment
+                        </p>
+                        <Image
+                            src="/qr.png"
+                            alt="Payment QR Code"
+                            width={180}
+                            height={180}
+                            quality={70}
                         />
                     </div>
 
@@ -312,7 +352,6 @@ export default function Register(): React.ReactElement {
                             {loading ? "Submitting..." : "Submit Registration"}
                         </button>
                     </div>
-
                 </form>
             </div>
         </section>
