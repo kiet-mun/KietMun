@@ -67,7 +67,7 @@ export default function HeroContent(): React.ReactElement {
                     </motion.span>
                 </div>
 
-                {/* Title — nowrap so it never breaks into 2 lines */}
+                {/* Title */}
                 <motion.h1
                     variants={fadeInUp}
                     initial="hidden"
@@ -110,7 +110,7 @@ export default function HeroContent(): React.ReactElement {
                     </motion.div>
                 </motion.div>
 
-                {/* Datee */}
+                {/* Date */}
                 <motion.h2
                     variants={fadeInUp}
                     initial="hidden"
@@ -122,7 +122,7 @@ export default function HeroContent(): React.ReactElement {
                     28-29 March&apos;26
                 </motion.h2>
 
-                {/* Register — mobile only */}
+                {/* Register Button */}
                 <motion.button
                     variants={fadeInUp}
                     initial="hidden"

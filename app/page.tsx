@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, type Variants } from "framer-motion";
+import axios from "axios";
 
 import HeroContent from "@/components/HeroSection";
 import CountdownTimer from "@/components/CountDownTimer";
@@ -31,6 +32,7 @@ export default function Home(): React.ReactElement {
 
     useEffect(() => {
         setShowTimer(true);
+        axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/ping`)
     }, []);
 
     return (
