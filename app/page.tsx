@@ -32,8 +32,22 @@ export default function Home(): React.ReactElement {
 
     useEffect(() => {
         setShowTimer(true);
-        axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/ping`)
     }, []);
+
+    useEffect(() => {
+    const warmUp = async () => {
+        try {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/health`, {
+                method: "GET",
+                cache: "no-store"
+            });
+        } catch (err) {
+            console.log("Backend warming...");
+        }
+    };
+
+    warmUp();
+}, []);
 
     return (
         <>
