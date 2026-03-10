@@ -155,9 +155,24 @@ export default function Register(): React.ReactElement {
                         Delegate Registration
                     </h1>
 
-                    <p className="text-center text-[#0d0c2d]/70 mb-10">
-                        Delegate Fee: ₹1600
-                    </p>
+                   <div className="text-center mb-10 bg-[#C7BEE6]/10 border border-[#C7BEE6]/40 rounded-lg p-4">
+  <p className="text-[#0d0c2d] font-medium">
+    Delegate Fee: ₹1600
+  </p>
+
+  <p className="text-sm text-[#0d0c2d]/70 mt-1">
+    Please refer to the portfolio matrix before selecting your preferences.
+  </p>
+
+ <a
+  href="https://docs.google.com/spreadsheets/d/1SN7dr2zejnMXOxHeX2Q7RSbUu6aWNMGt9wovqtTdsIk/edit?gid=0#gid=0"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block mt-3 text-[#0d0c2d] font-semibold underline hover:text-[#C7BEE6]"
+>
+  View Portfolio Matrix
+</a>
+</div>
 
                     <form
                         onSubmit={handleSubmit(onSubmit)}
